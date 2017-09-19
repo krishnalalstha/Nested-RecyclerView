@@ -50,8 +50,12 @@ public class HomesParentNewsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     private void initChildLayoutManager(RecyclerView rv_child, ParentNews parentNews) {
         if (parentNews.getCategoryName().equals("Header 3")) {
+            LinearLayoutManager manager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
+            rv_child.setLayoutManager(manager);
+        } else if (parentNews.getCategoryName().equals("Header 2")) {
             LinearLayoutManager manager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
             rv_child.setLayoutManager(manager);
+
         } else {
             GridLayoutManager manager = new GridLayoutManager(mContext, 2, GridLayoutManager.VERTICAL, false);
             rv_child.setLayoutManager(manager);
@@ -74,7 +78,6 @@ public class HomesParentNewsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
             }
         });
-
         HomeChildNewsAdapter homeChildNewsAdapter = new HomeChildNewsAdapter(parentNews.getNewsArrayList());
         rv_child.setAdapter(homeChildNewsAdapter);
 
