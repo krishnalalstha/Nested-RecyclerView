@@ -15,7 +15,7 @@ import com.krish.demo.model.ParentNews;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -25,7 +25,7 @@ public class ParentFragment extends Fragment {
 
     private static final String TAG = ParentFragment.class.getSimpleName();
 
-    @Bind(R.id.rv_parent)
+
     RecyclerView recyclerViewParent;
 
     ArrayList<ParentNews> parentChildObj;
@@ -38,7 +38,7 @@ public class ParentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_parent, container, false);
-        ButterKnife.bind(this, rootView);
+       recyclerViewParent=rootView.findViewById(R.id.rv_parent);
 
         return rootView;
     }
@@ -95,6 +95,6 @@ public class ParentFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
+
     }
 }

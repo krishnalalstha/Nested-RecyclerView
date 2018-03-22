@@ -6,7 +6,8 @@ import android.widget.TextView;
 
 import com.krish.demo.R;
 
-import butterknife.Bind;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -15,11 +16,11 @@ import butterknife.ButterKnife;
 
 public class NewsViewHolder extends RecyclerView.ViewHolder {
 
-    @Bind(R.id.tv_child)
+
     public TextView tv_child;
 
     public NewsViewHolder(View itemView) {
         super(itemView);
-        ButterKnife.bind(this, itemView);
+       tv_child=itemView.findViewById(R.id.tv_child);
     }
 }

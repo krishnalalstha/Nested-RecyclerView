@@ -42,9 +42,19 @@ public class HomesParentNewsAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ParentNewsViewHolder vh = (ParentNewsViewHolder) holder;
+        final ParentNewsViewHolder vh = (ParentNewsViewHolder) holder;
         ParentNews mParentNews = parentChildData.get(position);
         vh.tv_header.setText(mParentNews.getCategoryName());
+        vh.tv_header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(vh.rv_child.getVisibility()==View.VISIBLE) {
+                    vh.rv_child.setVisibility(View.GONE);
+                }else {
+                    vh.rv_child.setVisibility(View.VISIBLE);
+                }
+            }
+        });
         initChildLayoutManager(vh.rv_child, mParentNews);
     }
 
